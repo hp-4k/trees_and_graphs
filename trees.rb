@@ -26,6 +26,12 @@ def add_to_tree(top_node, value)
   end
 end
 
+def print_tree(from_node)
+  print_tree(from_node.left_child) if from_node.left_child
+  print "#{from_node.value} "
+  print_tree(from_node.right_child) if from_node.right_child
+end
+
 def build_tree(array)
   top_node = nil
   array.each do |value|
