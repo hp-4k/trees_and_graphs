@@ -43,3 +43,24 @@ def build_tree(array)
   end
   top_node
 end
+
+def breadth_first_search(start_node, target_value)
+  queue = []
+  visited = []
+  queue.push(start_node)
+  visited.push(start_node)
+  until queue.empty?
+    current_node = queue.shift
+    [current_node.left_child, current_node.right_child].each do |child|
+      if child && !visited.include?(child)
+        if child.value == target_value
+          puts "Inspected #{visited.size} nodes"
+          return child
+        end
+        visited.push(child)
+        queue.push(child)
+      end
+    end
+  end
+  false
+end
