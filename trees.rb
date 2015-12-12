@@ -1,13 +1,18 @@
 class Node
   
-  attr_accessor :value, :parent, :left_child, :right_child
+  attr_accessor :value, :parent, :left_child, :right_child, :visited
   
   def initialize(options)
     @value = options[:value]
     @parent = options[:parent]
     @left_child = options[:left_child]
     @right_child = options[:right_child]
-  end  
+    @visited = false
+  end
+  
+  def children
+    [@left_child, @right_child]
+  end
 end
 
 def add_to_tree(top_node, value)
@@ -81,6 +86,18 @@ def depth_first_search(start_node, target_value)
         visited.push(child)
         stack.push(child)
       end
+    end
+  end
+  nil
+end
+
+def depth_first_search_recursive(node, target_value)
+  if node.value == target_value
+    return node 
+  else
+    node.children.each do |child|
+      result = child.nil? ? nil : depth_first_search_recursive(child, target_value)
+      return result if !result.nil?
     end
   end
   nil
