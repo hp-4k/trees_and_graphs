@@ -10,5 +10,5 @@ These files contain solutions to exercises on basic data structures and algorith
 
 
 #### knights_moves.rb
-Implements function `knight_moves(origin, target)` which takes two arrays `[x, y]` where both `x` and `y` are integers between 1 and 8 representing a square on a chess board. The function uses a breadth-first search algorithm to find the shortest path a knight (a chess piece) can move from the origin to the target square.
+Implements function `knight_moves(origin, target)` which takes two arrays `[x, y]` where both `x` and `y` are integers between 1 and 8 representing a square on a chess board. The function uses a breadth-first search algorithm to find the shortest path a knight (a chess piece) can take to move from the origin to the target square.
 
