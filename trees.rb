@@ -62,5 +62,26 @@ def breadth_first_search(start_node, target_value)
       end
     end
   end
-  false
+  nil
+end
+
+def depth_first_search(start_node, target_value)
+  stack = []
+  visited = []
+  stack.push(start_node)
+  visited.push(start_node)
+  until stack.empty?
+    current_node = stack.pop
+    [current_node.left_child, current_node.right_child].each do |child|
+      if child && !visited.include?(child)
+        if child.value == target_value
+          puts "Inspected #{visited.size} nodes"
+          return child
+        end
+        visited.push(child)
+        stack.push(child)
+      end
+    end
+  end
+  nil
 end
